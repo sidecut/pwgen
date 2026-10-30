@@ -1,25 +1,5 @@
 #!/usr/bin/make -f
 #export DH_VERBOSE = 1
 
-include /usr/share/dpkg/architecture.mk
-
-#CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
-#CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
-#CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
-#LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
-
-# see FEATURE AREAS in dpkg-buildflags(1)
-#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-
-# see ENVIRONMENT in dpkg-buildflags(1)
-# package maintainers to append CFLAGS
-#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
-# package maintainers to append LDFLAGS
-#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
-
 %:
 	dh $@
-
-override_dh_auto_configure:
-	./configure --build=$(DEB_BUILD_GNU_TYPE) --host=$(DEB_HOST_GNU_TYPE) \
-		--prefix=/usr --mandir=/usr/share/man
