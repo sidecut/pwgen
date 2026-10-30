@@ -85,7 +85,7 @@ func randomNumber(max int) (int, error) {
 }
 
 func parseOptions(args []string, isTerminal bool) (options, error) {
-	opts := options{length: 8, count: -1, columns: isTerminal, flags: flagDigits | flagUppers}
+	opts := options{length: 12, count: -1, columns: isTerminal, flags: flagDigits | flagUppers}
 	var positional []string
 	var err error
 

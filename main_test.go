@@ -17,6 +17,16 @@ func TestParseOptions(t *testing.T) {
 	}
 }
 
+func TestParseOptionsDefaultsToTwelveCharacterPasswords(t *testing.T) {
+	opts, err := parseOptions(nil, false)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if opts.length != 12 {
+		t.Fatalf("default password length = %d, want 12", opts.length)
+	}
+}
+
 func TestGeneratedPasswordsHaveRequestedLength(t *testing.T) {
 	for _, test := range []struct {
 		name   string
